@@ -86,7 +86,7 @@ export default function ComingSoon() {
   return (
     <div
       className="min-h-screen relative overflow-hidden"
-      style={{ backgroundColor: "#27282A" }}
+      style={{ backgroundColor: "#27282A", minHeight: "100dvh" }}
     >
       {/* Font preload link */}
       <link
@@ -223,9 +223,10 @@ export default function ComingSoon() {
 
       {/* Main Content */}
       <div
-        className={`relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-4 text-center transition-opacity duration-300 ${
+        className={`relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-4 pb-20 sm:pb-24 md:pb-20 text-center transition-opacity duration-300 ${
           fontLoaded ? "opacity-100" : "opacity-0"
         }`}
+        style={{ minHeight: "100dvh" }}
       >
         {/* Brand Name */}
         <div className="animate-fade-in mb-2 sm:mb-3">
@@ -288,7 +289,10 @@ export default function ComingSoon() {
       </div>
 
       {/* Footer - Contact Information */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 pb-4 sm:pb-6 lg:pb-8">
+      <div
+        className="absolute bottom-0 left-0 right-0 z-20 pb-4 sm:pb-6 lg:pb-8"
+        style={{ paddingBottom: "max(1rem, env(safe-area-inset-bottom))" }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 items-center">
             {/* Email - Sol */}
@@ -357,6 +361,17 @@ export default function ComingSoon() {
           font-display: block;
           font-weight: 600;
           font-style: normal;
+        }
+
+        /* Viewport height fix for mobile */
+        html {
+          height: 100%;
+          height: 100dvh;
+        }
+
+        body {
+          height: 100%;
+          height: 100dvh;
         }
 
         /* Mobile First Animations */
