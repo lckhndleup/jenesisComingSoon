@@ -21,13 +21,15 @@ const translations = {
     description:
       "1984'den bugüne sürekli gelişen şirketimizin web sayfasını sizler için yeniliyoruz",
     status: "Yakında Hizmetinizdeyiz",
+    urgentCalls: "acil telepleriniz için",
   },
   en: {
     brandName: "JENESIS",
     subTitle: "STEAM GENERATORS",
     description:
-      "We’re updating our company’s website for you, as we’ve been continuously evolving since 1984.",
+      "We're updating our company's website for you, as we've been continuously evolving since 1984.",
     status: "Coming Soon",
+    urgentCalls: "for your urgent calls",
   },
 };
 
@@ -275,13 +277,72 @@ export default function ComingSoon() {
         </div>
 
         {/* Status Text */}
-        <div className="animate-opacity-sync">
+        <div className="animate-opacity-sync mb-16 sm:mb-20">
           <p
             className="text-gray-500 text-xs sm:text-sm font-mono tracking-widest"
             style={{ fontFamily: "'Space Colony W03 SemiBold', monospace" }}
           >
             {t.status}
           </p>
+        </div>
+      </div>
+
+      {/* Footer - Contact Information */}
+      <div className="absolute bottom-0 left-0 right-0 z-20 pb-4 sm:pb-6 lg:pb-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 items-center">
+            {/* Email - Sol */}
+            <div className="text-center md:text-left order-2 md:order-1">
+              <a
+                href="mailto:info@jenesis.com.tr"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-[#BC461B] transition-colors duration-300"
+                style={{ fontFamily: "'Space Colony W03 SemiBold', monospace" }}
+              >
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                </svg>
+                info@jenesis.com.tr
+              </a>
+            </div>
+
+            {/* Acil Çağrılar - Merkez */}
+            <div className="text-center order-1 md:order-2">
+              <p
+                className="text-xs sm:text-sm text-[#BC461B] font-bold tracking-wider"
+                style={{ fontFamily: "'Space Colony W03 SemiBold', monospace" }}
+              >
+                {t.urgentCalls}
+              </p>
+            </div>
+
+            {/* Telefon - Sağ */}
+            <div className="text-center md:text-right order-3 md:order-3">
+              <a
+                href="tel:+902125951556"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-[#BC461B] transition-colors duration-300"
+                style={{ fontFamily: "'Space Colony W03 SemiBold', monospace" }}
+              >
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                +90 212 595 15 56
+              </a>
+            </div>
+          </div>
+
+          {/* Alt çizgi */}
+          <div className="w-full h-px bg-gradient-to-r from-transparent via-[#BC461B]/30 to-transparent mt-4"></div>
         </div>
       </div>
 
@@ -328,141 +389,48 @@ export default function ComingSoon() {
           }
         }
 
-        @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes spin-reverse {
-          from {
-            transform: rotate(360deg);
-          }
-          to {
-            transform: rotate(0deg);
-          }
-        }
-
         .animate-fade-in {
           animation: fade-in 1s ease-out;
         }
 
-        .animate-fade-in-delayed {
-          animation: fade-in 1s ease-out 0.2s both;
-        }
-
         .animate-fade-in-delayed-2 {
-          animation: fade-in 1s ease-out 0.4s both;
+          animation: fade-in 1s ease-out 0.5s both;
         }
 
         .animate-fade-in-delayed-3 {
-          animation: fade-in 1s ease-out 0.6s both;
+          animation: fade-in 1s ease-out 1s both;
         }
 
         .animate-progress-load {
-          animation: progress-load 3s ease-out 1s both;
+          animation: progress-load 3s ease-in-out infinite;
         }
 
         .animate-opacity-sync {
-          animation: opacity-sync 3s ease-out 1s both;
+          animation: opacity-sync 2s ease-in-out infinite alternate;
         }
 
         .animate-spin-slow {
-          animation: spin-slow 30s linear infinite;
+          animation: spin 8s linear infinite;
         }
 
         .animate-spin-reverse {
-          animation: spin-reverse 25s linear infinite;
+          animation: spin 6s linear infinite reverse;
         }
 
-        /* Extra Small Devices (phones, 320px and up) */
-        @media (max-width: 374px) {
-          .animate-fade-in {
-            animation-duration: 0.8s;
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
           }
-          .animate-fade-in-delayed-2,
-          .animate-fade-in-delayed-3 {
-            animation-duration: 0.8s;
-          }
-        }
-
-        /* Small devices (landscape phones, 576px and up) */
-        @media (min-width: 576px) {
-          @keyframes fade-in {
-            from {
-              opacity: 0;
-              transform: translateY(30px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-
-          .animate-fade-in {
-            animation-duration: 1.2s;
-          }
-
-          .animate-fade-in-delayed {
-            animation: fade-in 1.2s ease-out 0.3s both;
-          }
-
-          .animate-fade-in-delayed-2 {
-            animation: fade-in 1.2s ease-out 0.6s both;
-          }
-
-          .animate-fade-in-delayed-3 {
-            animation: fade-in 1.2s ease-out 0.9s both;
-          }
-
-          .animate-progress-load {
-            animation: progress-load 4s ease-out 1.5s both;
-          }
-
-          .animate-opacity-sync {
-            animation: opacity-sync 4s ease-out 1.5s both;
+          to {
+            transform: rotate(360deg);
           }
         }
 
-        /* Large devices (desktops, 992px and up) */
-        @media (min-width: 992px) {
-          .animate-spin-slow {
-            animation: spin-slow 20s linear infinite;
-          }
-
-          .animate-spin-reverse {
-            animation: spin-reverse 15s linear infinite;
-          }
-        }
-
-        /* Reduced motion preferences */
-        @media (prefers-reduced-motion: reduce) {
-          .animate-spin-slow,
-          .animate-spin-reverse {
-            animation-duration: 60s;
-          }
-
-          .animate-fade-in,
-          .animate-fade-in-delayed,
-          .animate-fade-in-delayed-2,
-          .animate-fade-in-delayed-3 {
-            animation-duration: 0.5s;
-          }
-        }
-
-        /* Portrait orientation adjustments */
-        @media (orientation: portrait) and (max-height: 667px) {
-          .animate-fade-in {
-            animation-delay: 0s;
-          }
-          .animate-fade-in-delayed-2 {
-            animation-delay: 0.2s;
-          }
-          .animate-fade-in-delayed-3 {
-            animation-delay: 0.4s;
+        /* Responsive breakpoints */
+        @media (max-width: 639px) {
+          .xs\:text-5xl {
+            font-size: 3rem;
+            line-height: 1;
           }
         }
       `}</style>
