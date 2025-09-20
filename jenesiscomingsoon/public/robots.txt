@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jenesis.com.tr
+
+# Sitemaps
+Sitemap: https://jenesis.com.tr/sitemap.xml
